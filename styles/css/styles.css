@@ -1,0 +1,40 @@
+body{
+    background: #978;
+    height: 100%;
+}
+
+.container{
+    width: 500px;
+    padding: 20px 30px;
+}
+
+/* Los input de tipo check no los vamos a mostrar */
+.container .star-widget input{
+    display: none;
+}
+
+/* Estas van a ser las estrellas */
+.star-widget label{
+    font-size: 65px;
+    color: #cfcfcf;
+    padding: 10px;
+    float: right; /* Float right hace que el último label aparezca como el primero */
+    transition: all 0.2s ease;
+}
+
+/* :not(:checked) An unchecked checkbox can be selected by using the negation pseudo-class */
+
+/* input:not(:checked) ~ label:hover Si el input correspondiente no está checkeado, al hacer hover cambiará de color en la estrella en la que estamos */
+/* input:not(:checked) ~ label:hover ~ label Si el input correspondiente no está checkeado y se hace hover sobre una estrella, todas las siguientes etiquetas label cambiarán de color, pero no la que hemos hecho hover */
+/* Ambas juntas crean el efecto hover */
+input:not(:checked) ~ label:hover,
+input:not(:checked) ~ label:hover ~ label{
+    color: rgb(255,174,0);
+}
+
+/* Todas las etiquetas que vayan despues del input que está en checked, se pintarán de amarillo */
+input:checked ~ label{
+    color: rgb(255,174,0);
+}
+
+/* ::before crea un pseudoelemento que es el primer hijo del elemento seleccionado. Es usado normalmente para añadir contenido estético a un elemento, usando la propiedad content. Este elemento se muestra en línea con el texto de forma predeterminada. */
